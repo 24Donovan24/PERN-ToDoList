@@ -4,18 +4,31 @@ This is a simple ToDo List application built using technology stacks PostgreSQL,
 ## Setup
 In this project directory, 
 
+### Client 
+**Change directory to client using**
+```
+$ cd client
+```
 **Install relevant dependencies using**
 ```
 $ npm install
 ```
-**Change directory to client and start the client using**
+**Start the client using**
 ```
-$ cd client
 $ npm start
 ```
-**Change directory to server and start the server using**
+
+### Server
+**Change directory to server using**
 ```
 $ cd server
+```
+**Install relevant dependencies using**
+```
+$ npm install
+```
+**Start the server using**
+```
 $ nodemon start
 ```
 
