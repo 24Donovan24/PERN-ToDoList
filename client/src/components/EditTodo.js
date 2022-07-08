@@ -2,12 +2,13 @@ import React, { Fragment, useState } from "react";
 
 const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
+  const [date, setDate] = useState(todo.date);
 
-  //Edit description function
-  const updateDescription = async (e) => {
+  //Edit Todo function
+  const updateTodo = async (e) => {
     e.preventDefault();
     try {
-      const body = { description };
+      const body = { description, date };
       const response = await fetch(
         `http://localhost:5000/todos/${todo.todo_id}`,
         {
@@ -39,7 +40,7 @@ const EditTodo = ({ todo }) => {
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
-          onClick={() => setDescription(todo.description)}
+          onClick={() => {setDescription(todo.description); setDate(todo.date);}}
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -52,15 +53,23 @@ const EditTodo = ({ todo }) => {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  onClick={() => setDescription(todo.description)}
+                  onClick={() => {setDescription(todo.description); setDate(todo.date);}}
                 ></button>
               </div>
               <div className="modal-body">
+                <h6>Description</h6>
                 <input
                   type="text"
                   className="form-control"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                />
+                <h6 className="mt-3">Deadline</h6>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
                 />
               </div>
               <div className="modal-footer">
@@ -68,7 +77,7 @@ const EditTodo = ({ todo }) => {
                   type="button"
                   className="btn btn-warning"
                   data-bs-dismiss="modal"
-                  onClick={(e) => updateDescription(e)}
+                  onClick={(e) => updateTodo(e)}
                 >
                   Edit
                 </button>
@@ -76,7 +85,7 @@ const EditTodo = ({ todo }) => {
                   type="button"
                   className="btn btn-danger"
                   data-bs-dismiss="modal"
-                  onClick={() => setDescription(todo.description)}
+                  onClick={() => {setDescription(todo.description); setDate(todo.date);}}
                 >
                   Close
                 </button>
