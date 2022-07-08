@@ -2,11 +2,12 @@ import React, { Fragment, useState } from "react";
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-        const body = {description};
+        const body = {description, date};
         const response = await fetch("http://localhost:5000/todos", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -28,7 +29,14 @@ const InputTodo = () => {
           className="form-control"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="What's your to-do for the day?"
+          placeholder="What's your To-Do?"
+        />
+        <input
+          type="text"
+          className="form-control"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          placeholder="Deadline for your To-Do?   eg. DD/MM/YYYY"
         />
         <button className="btn btn-success">Add</button>
       </form>
