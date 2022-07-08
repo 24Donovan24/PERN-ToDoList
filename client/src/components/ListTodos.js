@@ -39,6 +39,7 @@ const ListTodos = () => {
         <thead>
           <tr>
             <th>Description</th>
+            <th>Deadline</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -47,6 +48,7 @@ const ListTodos = () => {
           {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
+              <td>{todo.date}</td>
               <td>
                 <EditTodo todo = {todo} />
               </td>
