@@ -9,12 +9,12 @@ app.use(express.json()); //req.body
 
 //ROUTES//
 
-//create a todo
+//create a Todo with date
 app.post("/todos", async(req, res) => {
     try {
-        const { description } = req.body;
-        const newToDo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *",
-        [description]
+        const { description, date } = req.body;
+        const newToDo = await pool.query("INSERT INTO todo (description, date) VALUES($1, $2) RETURNING *",
+        [description, date]
         );
 
         res.json(newToDo.rows[0]);
@@ -23,7 +23,7 @@ app.post("/todos", async(req, res) => {
     }
 })
 
-//get all todo
+//get all Todos
 app.get("/todos", async(req, res) => {
     try {
         const allTodos = await pool.query("SELECT * FROM todo");
@@ -48,9 +48,9 @@ app.get("/todos/:id", async(req, res) => {
 app.put("/todos/:id", async(req, res) => {
     try {
         const {id} = req.params;
-        const {description} = req.body;
-        const updateTodo = await pool.query("UPDATE todo SET description = $1 WHERE todo_id = $2", 
-        [description, id]);
+        const {description, date} = req.body;
+        const updateTodo = await pool.query("UPDATE todo SET description = $1, date = $2 WHERE todo_id = $3", 
+        [description, date, id]);
         res.json("Todo was updated!");
     } catch (err) {
         console.log(err.message);
