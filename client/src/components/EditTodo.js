@@ -40,7 +40,7 @@ const EditTodo = ({ todo }) => {
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
-          onClick={() => {setDescription(todo.description); setDate(todo.date);}}
+          // onClick={() => {setDescription(todo.description); setDate(todo.date);}}
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
