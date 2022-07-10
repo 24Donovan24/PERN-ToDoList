@@ -35,7 +35,7 @@ const ListTodos = () => {
   return (
     <Fragment>
       {" "}
-      <table className="table mt-5 text-center">
+      <table className="table table-striped mt-5 text-center">
         <thead>
           <tr>
             <th>Description</th>
