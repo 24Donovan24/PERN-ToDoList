@@ -1,5 +1,6 @@
 # PERN-ToDoList
-This is a simple ToDo List application built using technology stacks PostgreSQL, Express, React.js and Node.js (PERN).
+This is a simple ToDo List application built using technology stacks PostgreSQL, Express, React.js and Node.js (PERN). Additional feature include a
+date column for users to track the deadlines of their todo.
 
 ## Setup
 
