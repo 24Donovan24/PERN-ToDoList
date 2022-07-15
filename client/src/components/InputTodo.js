@@ -7,14 +7,14 @@ const InputTodo = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-        const body = {description, date};
-        const response = await fetch("http://localhost:5000/todos", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(body)
-        });
-        
-        window.location = "/";
+      const body = { description, date };
+      const response = await fetch("http://localhost:5000/todos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      window.location = "/";
     } catch (err) {
       console.log(err.message);
     }
